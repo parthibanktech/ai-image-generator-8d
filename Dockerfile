@@ -1,14 +1,15 @@
 # Use Python 3.11 slim image
-FROM python:3.11-slim
+# Use Python 3.11 slim bookworm (stable Debian 12)
+FROM python:3.11-slim-bookworm
 
 # Set working directory
 WORKDIR /app
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+# Added --fix-missing and removed unnecessary packages to prevent build errors
+RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
-    software-properties-common \
     git \
     && rm -rf /var/lib/apt/lists/*
 
