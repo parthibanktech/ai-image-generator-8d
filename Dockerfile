@@ -13,11 +13,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first for better caching
-COPY requirements_docker.txt .
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements_docker.txt
+# Install Python dependencies directly (no requirements file - avoids encoding issues)
+RUN pip install --no-cache-dir \
+    streamlit \
+    requests \
+    Pillow \
+    huggingface_hub \
+    rembg \
+    onnxruntime
 
 # Copy application files
 COPY . .
