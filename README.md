@@ -318,3 +318,5 @@ For issues or questions:
 **Made with ❤️ by Parthi**
 
 *Generate stunning 8D images with the power of AI!* 🎨✨
+#   a i - i m a g e - g e n e r a t o r - 8 d  
+ 
