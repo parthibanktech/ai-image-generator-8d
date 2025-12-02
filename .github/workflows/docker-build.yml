@@ -64,9 +64,8 @@ jobs:
           push: true              # Push to Docker Hub (set to false for testing)
           tags: ${{ steps.meta.outputs.tags }}      # Use tags from step 4
           labels: ${{ steps.meta.outputs.labels }}  # Add metadata labels
-          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}:buildcache  # Use cache for faster builds
-          cache-to: type=registry,ref=${{ env.IMAGE_NAME }}:buildcache,mode=max
-        # This builds your Dockerfile and pushes the image to parthibanktech3/ai-image-generator
+          no-cache: true          # Disable cache to force fresh build
+        # This builds your Dockerfile and pushes the image to YOUR_USERNAME/ai-image-generator
 
       # Step 6: Display the image digest (unique identifier)
       - name: Image digest
