@@ -6,8 +6,8 @@ FROM python:3.11-slim-bookworm
 WORKDIR /app
 
 # Install system dependencies
-# Added --fix-missing and removed unnecessary packages to prevent build errors
-RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
+# CACHE_BUST=1
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
     git \
